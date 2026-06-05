@@ -122,14 +122,15 @@ main{max-width:800px;margin:0 auto;padding:1.25rem 1rem 4rem;}
 /* ── ROUTE MAP ── */
 .map-section{background:var(--surface2);border-radius:var(--r-sm);padding:10px;}
 .map-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(130px,1fr));gap:6px;margin-top:8px;}
-.map-img-wrap{position:relative;border-radius:6px;overflow:hidden;background:#fff;border:1px solid var(--border);aspect-ratio:4/3;}
-.map-img-wrap img{width:100%;height:100%;object-fit:cover;display:block;}
+.map-img-wrap{position:relative;border-radius:6px;overflow:hidden;background:#fff;border:1px solid var(--border);display:inline-block;max-width:200px;}
+.map-img-wrap img{width:100%;max-height:160px;object-fit:contain;display:block;}
 .map-img-rm{position:absolute;top:3px;right:3px;background:rgba(0,0,0,.5);color:#fff;border:none;border-radius:50%;width:20px;height:20px;font-size:10px;cursor:pointer;}
-.upload-btn{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:4px;border:1.5px dashed var(--border2);border-radius:6px;aspect-ratio:4/3;cursor:pointer;background:#fff;position:relative;transition:all .15s;}
-.upload-btn:hover{background:var(--blue-bg);border-color:var(--blue-bd);}
-.upload-btn input{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%;z-index:10;}
-.upload-btn-icon{font-size:16px;color:var(--text3);}
-.upload-btn-text{font-size:10px;color:var(--text3);text-align:center;}
+.upload-btn{display:inline-flex;align-items:center;gap:7px;padding:9px 16px;border-radius:var(--r-sm);border:1.5px dashed var(--border2);background:var(--surface);cursor:pointer;position:relative;transition:all .15s;color:var(--text2);font-size:12px;font-weight:500;margin-top:4px;}
+.upload-btn:hover{background:var(--blue-bg);border-color:var(--blue-bd);color:var(--blue);}
+.upload-btn input[type=file]{position:absolute;inset:0;opacity:0;cursor:pointer;width:100%;height:100%;z-index:10;}
+.upload-btn-icon{font-size:14px;}
+.upload-btn-text{font-size:12px;}
+.map-img-grid{display:flex;flex-wrap:wrap;gap:8px;margin-top:8px;}
 
 /* ── HOTELS ── */
 .cost-bars{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-bottom:14px;}
@@ -378,8 +379,8 @@ main{max-width:800px;margin:0 auto;padding:1.25rem 1rem 4rem;}
     </div>
     <div class="det-sec">
       <div class="map-section">
-        <div class="det-lbl">截圖</div>
-        <div class="map-grid" id="m0"><div class="upload-btn" onclick="this.querySelector('input[type=file]').click()"><input type="file" accept="image/*" multiple onchange="addMap('0',this)"><span class="upload-btn-icon">🗺</span><span class="upload-btn-text">上傳截圖</span></div></div>
+        <div class="det-lbl">📷 行程截圖</div>
+        <div class="map-grid" style="display:flex;flex-wrap:wrap;gap:8px;align-items:flex-start;margin-top:8px;" id="m0"><div class="upload-btn" onclick="this.querySelector('input[type=file]').click()"><input type="file" accept="image/*" multiple onchange="addMap('0',this)"><span class="upload-btn-icon">📷</span><span class="upload-btn-text">＋ 上傳行程截圖</span></div></div>
       </div>
     </div>
   </div></div>
@@ -417,7 +418,7 @@ main{max-width:800px;margin:0 auto;padding:1.25rem 1rem 4rem;}
       <div class="komoot-frame"><iframe src="https://www.komoot.com/tour/2766677006/embed?share_token=aYrMb5B3gWXybE1vk8EfEBEaHpKkirkqCDitrBtjgoFX9UNNWs&profile=1" width="100%" height="700" frameborder="0" scrolling="no"></iframe></div>
     </div>
     <div class="det-sec">
-      <div class="map-section"><div class="det-lbl">截圖（已預載）</div><div class="map-grid" id="m1"><div class="upload-btn" onclick="this.querySelector('input[type=file]').click()"><input type="file" accept="image/*" multiple onchange="addMap('1',this)"><span class="upload-btn-icon">📎</span><span class="upload-btn-text">新增</span></div></div></div>
+      <div class="map-section"><div class="det-lbl">📷 行程截圖（已預載）</div><div class="map-grid" style="display:flex;flex-wrap:wrap;gap:8px;align-items:flex-start;margin-top:8px;" id="m1"><div class="upload-btn" onclick="this.querySelector('input[type=file]').click()"><input type="file" accept="image/*" multiple onchange="addMap('1',this)"><span class="upload-btn-icon">📎</span><span class="upload-btn-text">新增</span></div></div></div>
     </div>
   </div></div>
 </div>
@@ -456,7 +457,7 @@ main{max-width:800px;margin:0 auto;padding:1.25rem 1rem 4rem;}
       <div class="komoot-frame"><iframe src="https://www.komoot.com/tour/2766681412/embed?share_token=ahZH9nVXu1m0iwt8loHj46GCqhfXukVgp2HWOY55SaIXmENcAS&profile=1" width="100%" height="700" frameborder="0" scrolling="no"></iframe></div>
     </div>
     <div class="det-sec">
-      <div class="map-section"><div class="det-lbl">截圖（已預載）</div><div class="map-grid" id="m2"><div class="upload-btn" onclick="this.querySelector('input[type=file]').click()"><input type="file" accept="image/*" multiple onchange="addMap('2',this)"><span class="upload-btn-icon">📎</span><span class="upload-btn-text">新增</span></div></div></div>
+      <div class="map-section"><div class="det-lbl">📷 行程截圖（已預載）</div><div class="map-grid" style="display:flex;flex-wrap:wrap;gap:8px;align-items:flex-start;margin-top:8px;" id="m2"><div class="upload-btn" onclick="this.querySelector('input[type=file]').click()"><input type="file" accept="image/*" multiple onchange="addMap('2',this)"><span class="upload-btn-icon">📎</span><span class="upload-btn-text">新增</span></div></div></div>
     </div>
   </div></div>
 </div>
@@ -497,7 +498,7 @@ main{max-width:800px;margin:0 auto;padding:1.25rem 1rem 4rem;}
       <div class="komoot-frame"><iframe src="https://www.komoot.com/tour/2766688130/embed?share_token=agSTygJ07MAd1yGS8LTWSnnHdEAyXdWIDQ14UKZgnZzDr12Jkj&profile=1" width="100%" height="700" frameborder="0" scrolling="no"></iframe></div>
     </div>
     <div class="det-sec">
-      <div class="map-section"><div class="det-lbl">截圖（已預載）</div><div class="map-grid" id="m3"><div class="upload-btn" onclick="this.querySelector('input[type=file]').click()"><input type="file" accept="image/*" multiple onchange="addMap('3',this)"><span class="upload-btn-icon">📎</span><span class="upload-btn-text">新增</span></div></div></div>
+      <div class="map-section"><div class="det-lbl">📷 行程截圖（已預載）</div><div class="map-grid" style="display:flex;flex-wrap:wrap;gap:8px;align-items:flex-start;margin-top:8px;" id="m3"><div class="upload-btn" onclick="this.querySelector('input[type=file]').click()"><input type="file" accept="image/*" multiple onchange="addMap('3',this)"><span class="upload-btn-icon">📎</span><span class="upload-btn-text">新增</span></div></div></div>
     </div>
   </div></div>
 </div>
@@ -520,7 +521,7 @@ main{max-width:800px;margin:0 auto;padding:1.25rem 1rem 4rem;}
         <div class="tl-item"><div class="tl-dot-col"><div class="tl-dot"></div></div><div class="tl-content"><div class="tl-time">選項B</div><div class="tl-title">耍廢一整天 ☕</div></div></div>
       </div>
     </div>
-    <div class="det-sec"><div class="map-section"><div class="det-lbl">截圖</div><div class="map-grid" id="m4"><div class="upload-btn" onclick="this.querySelector('input[type=file]').click()"><input type="file" accept="image/*" multiple onchange="addMap('4',this)"><span class="upload-btn-icon">📎</span><span class="upload-btn-text">上傳</span></div></div></div></div>
+    <div class="det-sec"><div class="map-section"><div class="det-lbl">📷 行程截圖</div><div class="map-grid" style="display:flex;flex-wrap:wrap;gap:8px;align-items:flex-start;margin-top:8px;" id="m4"><div class="upload-btn" onclick="this.querySelector('input[type=file]').click()"><input type="file" accept="image/*" multiple onchange="addMap('4',this)"><span class="upload-btn-icon">📷</span><span class="upload-btn-text">＋ 上傳截圖</span></div></div></div></div>
   </div></div>
 </div>
 
@@ -557,7 +558,7 @@ main{max-width:800px;margin:0 auto;padding:1.25rem 1rem 4rem;}
       <div class="det-lbl">Komoot 路線地圖</div>
       <div class="komoot-frame"><iframe src="https://www.komoot.com/tour/2772212447/embed?share_token=aMtOScWuvigNPzxrQazLawn50eHxe74pucEsRw8XEMCSQl1Cut&profile=1" width="100%" height="700" frameborder="0" scrolling="no"></iframe></div>
     </div>
-    <div class="det-sec"><div class="map-section"><div class="det-lbl">截圖</div><div class="map-grid" id="m5"><div class="upload-btn" onclick="this.querySelector('input[type=file]').click()"><input type="file" accept="image/*" multiple onchange="addMap('5',this)"><span class="upload-btn-icon">📎</span><span class="upload-btn-text">上傳</span></div></div></div></div>
+    <div class="det-sec"><div class="map-section"><div class="det-lbl">📷 行程截圖</div><div class="map-grid" style="display:flex;flex-wrap:wrap;gap:8px;align-items:flex-start;margin-top:8px;" id="m5"><div class="upload-btn" onclick="this.querySelector('input[type=file]').click()"><input type="file" accept="image/*" multiple onchange="addMap('5',this)"><span class="upload-btn-icon">📷</span><span class="upload-btn-text">＋ 上傳截圖</span></div></div></div></div>
   </div></div>
 </div>
 
@@ -591,7 +592,7 @@ main{max-width:800px;margin:0 auto;padding:1.25rem 1rem 4rem;}
       <div class="det-lbl">Komoot 路線地圖</div>
       <div class="komoot-frame"><iframe src="https://www.komoot.com/tour/2772223067/embed?share_token=aEIMwVeZd6vm3IraPmTL6V17f2Bagi58CE7AgNId9rJOna5ULG&profile=1" width="100%" height="700" frameborder="0" scrolling="no"></iframe></div>
     </div>
-    <div class="det-sec"><div class="map-section"><div class="det-lbl">截圖</div><div class="map-grid" id="m6"><div class="upload-btn" onclick="this.querySelector('input[type=file]').click()"><input type="file" accept="image/*" multiple onchange="addMap('6',this)"><span class="upload-btn-icon">📎</span><span class="upload-btn-text">上傳</span></div></div></div></div>
+    <div class="det-sec"><div class="map-section"><div class="det-lbl">📷 行程截圖</div><div class="map-grid" style="display:flex;flex-wrap:wrap;gap:8px;align-items:flex-start;margin-top:8px;" id="m6"><div class="upload-btn" onclick="this.querySelector('input[type=file]').click()"><input type="file" accept="image/*" multiple onchange="addMap('6',this)"><span class="upload-btn-icon">📷</span><span class="upload-btn-text">＋ 上傳截圖</span></div></div></div></div>
   </div></div>
 </div>
 
@@ -626,7 +627,7 @@ main{max-width:800px;margin:0 auto;padding:1.25rem 1rem 4rem;}
       <div class="det-lbl">Komoot 路線地圖</div>
       <div class="komoot-frame"><iframe src="https://www.komoot.com/tour/2766819449/embed?share_token=acIp8sv11elCH8pwrY4veLl17ad2XlNUPaJl3JPOfgovjdM6wZ&profile=1&gallery=1" width="100%" height="700" frameborder="0" scrolling="no"></iframe></div>
     </div>
-    <div class="det-sec"><div class="map-section"><div class="det-lbl">截圖</div><div class="map-grid" id="m7"><div class="upload-btn" onclick="this.querySelector('input[type=file]').click()"><input type="file" accept="image/*" multiple onchange="addMap('7',this)"><span class="upload-btn-icon">📎</span><span class="upload-btn-text">上傳</span></div></div></div></div>
+    <div class="det-sec"><div class="map-section"><div class="det-lbl">📷 行程截圖</div><div class="map-grid" style="display:flex;flex-wrap:wrap;gap:8px;align-items:flex-start;margin-top:8px;" id="m7"><div class="upload-btn" onclick="this.querySelector('input[type=file]').click()"><input type="file" accept="image/*" multiple onchange="addMap('7',this)"><span class="upload-btn-icon">📷</span><span class="upload-btn-text">＋ 上傳截圖</span></div></div></div></div>
   </div></div>
 </div>
 
@@ -660,7 +661,7 @@ main{max-width:800px;margin:0 auto;padding:1.25rem 1rem 4rem;}
       <div class="det-lbl">Komoot 路線地圖</div>
       <div class="komoot-frame"><iframe src="https://www.komoot.com/tour/2772260679/embed?share_token=ayfnw6vfz07r5jKLLakLk020yCOb7SkuTdznfCsVxjqKSEu5km&profile=1" width="100%" height="700" frameborder="0" scrolling="no"></iframe></div>
     </div>
-    <div class="det-sec"><div class="map-section"><div class="det-lbl">截圖</div><div class="map-grid" id="m8"><div class="upload-btn" onclick="this.querySelector('input[type=file]').click()"><input type="file" accept="image/*" multiple onchange="addMap('8',this)"><span class="upload-btn-icon">📎</span><span class="upload-btn-text">上傳</span></div></div></div></div>
+    <div class="det-sec"><div class="map-section"><div class="det-lbl">📷 行程截圖</div><div class="map-grid" style="display:flex;flex-wrap:wrap;gap:8px;align-items:flex-start;margin-top:8px;" id="m8"><div class="upload-btn" onclick="this.querySelector('input[type=file]').click()"><input type="file" accept="image/*" multiple onchange="addMap('8',this)"><span class="upload-btn-icon">📷</span><span class="upload-btn-text">＋ 上傳截圖</span></div></div></div></div>
   </div></div>
 </div>
 
@@ -685,7 +686,7 @@ main{max-width:800px;margin:0 auto;padding:1.25rem 1rem 4rem;}
       </div>
       <button class="btn-add" style="margin-top:8px;font-size:11px;padding:5px 12px;" onclick="addTlItem('tl9')">＋ 新增時間點</button>
     </div>
-    <div class="det-sec"><div class="map-section"><div class="det-lbl">截圖 / 地圖</div><div class="map-grid" id="m9"><div class="upload-btn" onclick="this.querySelector('input[type=file]').click()"><input type="file" accept="image/*" multiple onchange="addMap('9',this)"><span class="upload-btn-icon">📎</span><span class="upload-btn-text">上傳</span></div></div></div></div>
+    <div class="det-sec"><div class="map-section"><div class="det-lbl">📷 行程截圖</div><div class="map-grid" style="display:flex;flex-wrap:wrap;gap:8px;align-items:flex-start;margin-top:8px;" id="m9"><div class="upload-btn" onclick="this.querySelector('input[type=file]').click()"><input type="file" accept="image/*" multiple onchange="addMap('9',this)"><span class="upload-btn-icon">📷</span><span class="upload-btn-text">＋ 上傳截圖</span></div></div></div></div>
   </div></div>
 </div>
 
@@ -708,7 +709,7 @@ main{max-width:800px;margin:0 auto;padding:1.25rem 1rem 4rem;}
       </div>
       <button class="btn-add" style="margin-top:8px;font-size:11px;padding:5px 12px;" onclick="addTlItem('tl10')">＋ 新增時間點</button>
     </div>
-    <div class="det-sec"><div class="map-section"><div class="det-lbl">截圖 / 地圖</div><div class="map-grid" id="m10"><div class="upload-btn" onclick="this.querySelector('input[type=file]').click()"><input type="file" accept="image/*" multiple onchange="addMap('10',this)"><span class="upload-btn-icon">📎</span><span class="upload-btn-text">上傳</span></div></div></div></div>
+    <div class="det-sec"><div class="map-section"><div class="det-lbl">📷 行程截圖</div><div class="map-grid" style="display:flex;flex-wrap:wrap;gap:8px;align-items:flex-start;margin-top:8px;" id="m10"><div class="upload-btn" onclick="this.querySelector('input[type=file]').click()"><input type="file" accept="image/*" multiple onchange="addMap('10',this)"><span class="upload-btn-icon">📷</span><span class="upload-btn-text">＋ 上傳截圖</span></div></div></div></div>
   </div></div>
 </div>
 
@@ -731,7 +732,7 @@ main{max-width:800px;margin:0 auto;padding:1.25rem 1rem 4rem;}
       </div>
       <button class="btn-add" style="margin-top:8px;font-size:11px;padding:5px 12px;" onclick="addTlItem('tl11')">＋ 新增時間點</button>
     </div>
-    <div class="det-sec"><div class="map-section"><div class="det-lbl">截圖 / 地圖</div><div class="map-grid" id="m11"><div class="upload-btn" onclick="this.querySelector('input[type=file]').click()"><input type="file" accept="image/*" multiple onchange="addMap('11',this)"><span class="upload-btn-icon">📎</span><span class="upload-btn-text">上傳</span></div></div></div></div>
+    <div class="det-sec"><div class="map-section"><div class="det-lbl">📷 行程截圖</div><div class="map-grid" style="display:flex;flex-wrap:wrap;gap:8px;align-items:flex-start;margin-top:8px;" id="m11"><div class="upload-btn" onclick="this.querySelector('input[type=file]').click()"><input type="file" accept="image/*" multiple onchange="addMap('11',this)"><span class="upload-btn-icon">📷</span><span class="upload-btn-text">＋ 上傳截圖</span></div></div></div></div>
   </div></div>
 </div>
 </div>
