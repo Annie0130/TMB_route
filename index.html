@@ -842,11 +842,52 @@ function markToday(){const S=new Date('2026-06-28'),N=new Date();if(N>=S&&N<=new
 function addTlItem(tlId){const tl=document.getElementById(tlId);const d=document.createElement('div');d.className='tl-item';d.innerHTML=`<div class="tl-dot-col"><div class="tl-dot"></div></div><div class="tl-content"><div class="tl-time" contenteditable="true" spellcheck="false" style="outline:none;border-bottom:1px dashed var(--border2);">時間</div><div class="tl-title" contenteditable="true" spellcheck="false" style="outline:none;border-bottom:1px dashed var(--border2);">事件標題</div><div class="tl-desc" contenteditable="true" spellcheck="false" data-note-id="note17" onblur="if(window.fbSyncNote)window.fbSyncNote('note17',this.textContent)">詳細說明（可刪除）</div></div>`;tl.appendChild(d);}
 
 // ── MAP UPLOAD ──
-function addMap(id,inp){const g=document.getElementById('m'+id);Array.from(inp.files).forEach(f=>{const u=URL.createObjectURL(f);const w=document.createElement('div');w.className='map-img-wrap';w.innerHTML=`<img src="${u}"><button class="map-img-rm" onclick="this.parentNode.remove()">✕</button>`;const btn=g.querySelector('.upload-btn');if(btn)g.insertBefore(w,btn);else g.appendChild(w);});inp.value='';}
+function addMap(id,inp){
+  const g=document.getElementById('m'+id);
+  if(!g){console.error('map grid not found: m'+id);return;}
+  Array.from(inp.files).forEach(f=>{
+    const u=URL.createObjectURL(f);
+    const w=document.createElement('div');
+    w.className='map-img-wrap';
+    const img=document.createElement('img');
+    img.src=u;
+    const btn2=document.createElement('button');
+    btn2.className='map-img-rm';
+    btn2.textContent='✕';
+    btn2.onclick=function(){this.parentNode.remove();};
+    w.appendChild(img);
+    w.appendChild(btn2);
+    const uploadBtn=g.querySelector('.upload-btn');
+    if(uploadBtn)g.insertBefore(w,uploadBtn);else g.appendChild(w);
+  });
+  inp.value='';
+}
 
 // ── PRELOAD ROUTE IMGS ──
 const IMG_KEYS={1:['day1_map1','day1_map2'],2:['day2_map1','day2_map2','day2_map3','day2_map4'],3:['day3_map1','day3_map2','day3_map3','day3_map4']};
-function initImgs(){if(!window.R)return;Object.entries(IMG_KEYS).forEach(([day,keys])=>{const g=document.getElementById('m'+day);if(!g)return;keys.forEach(k=>{const src=window.R[k];if(!src)return;const w=document.createElement('div');w.className='map-img-wrap';w.innerHTML=`<img src="${src}"><button class="map-img-rm" onclick="this.parentNode.remove()">✕</button>`;const btn=g.querySelector('.upload-btn');if(btn)g.insertBefore(w,btn);else g.appendChild(w);});});}
+function initImgs(){
+  if(!window.R)return;
+  Object.entries(IMG_KEYS).forEach(([day,keys])=>{
+    const g=document.getElementById('m'+day);
+    if(!g)return;
+    keys.forEach(k=>{
+      const src=window.R[k];
+      if(!src)return;
+      const w=document.createElement('div');
+      w.className='map-img-wrap';
+      const img=document.createElement('img');
+      img.src=src;
+      const btn2=document.createElement('button');
+      btn2.className='map-img-rm';
+      btn2.textContent='✕';
+      btn2.onclick=function(){this.parentNode.remove();};
+      w.appendChild(img);
+      w.appendChild(btn2);
+      const uploadBtn=g.querySelector('.upload-btn');
+      if(uploadBtn)g.insertBefore(w,uploadBtn);else g.appendChild(w);
+    });
+  });
+}
 
 // ── SYNC (Anthropic API for collaborative notes) ──
 let syncData={notes:{},lastSync:null};
