@@ -105,9 +105,12 @@ main{max-width:800px;margin:0 auto;padding:1.25rem 1rem 4rem;}
 .tl-title{font-size:13px;font-weight:600;color:var(--text);margin-bottom:2px;}
 .tl-desc{font-size:12px;color:var(--text2);line-height:1.6;}
 /* Editable */
-[contenteditable=true]{outline:none;border-radius:var(--r-xs);padding:6px 8px;background:var(--surface2);border:1px solid transparent;transition:all .15s;cursor:text;}
-[contenteditable=true]:hover{border-color:var(--border2);}
-[contenteditable=true]:focus{background:#fff;border-color:var(--pine-bd);box-shadow:0 0 0 3px rgba(30,92,58,.07);}
+[contenteditable=true]{outline:none;border-radius:var(--r-xs);padding:6px 8px;background:var(--surface2);border:1px dashed var(--border2);transition:all .15s;cursor:text;position:relative;}
+[contenteditable=true]:hover{border-color:var(--blue-bd);background:var(--blue-bg);}
+[contenteditable=true]:hover::after{content:'✏️';position:absolute;right:4px;top:4px;font-size:11px;opacity:0.6;}
+[contenteditable=true]:focus{background:#fff;border-color:var(--pine-bd);border-style:solid;box-shadow:0 0 0 3px rgba(30,92,58,.1);}
+[contenteditable=true]:focus::after{display:none;}
+.edit-hint-badge{font-size:9px;color:var(--text3);font-weight:400;margin-left:6px;opacity:0.7;}
 
 /* ── KOMOOT IFRAME ── */
 .komoot-frame{width:100%;border-radius:var(--r-sm);border:1px solid var(--border);overflow:hidden;}
@@ -340,38 +343,38 @@ main{max-width:800px;margin:0 auto;padding:1.25rem 1rem 4rem;}
   <div class="day-header" onclick="tog('c0')">
     <div class="day-num-col"><span class="dn">0</span><span class="dd">6/28 六</span></div>
     <div class="day-main">
-      <div class="day-city">抵達 Chamonix 霞慕尼</div>
-      <div class="day-hotel-lbl">🏨 Hotel Le Chamonix</div>
+      <div class="day-city" contenteditable="true" spellcheck="false" onclick="event.stopPropagation()" onfocus="event.stopPropagation()" data-note-id="note1073" onblur="if(window.fbSyncNote)window.fbSyncNote('note1073',this.textContent)">抵達 Chamonix 霞慕尼</div>
+      <div class="day-hotel-lbl" contenteditable="true" spellcheck="false" onclick="event.stopPropagation()" onfocus="event.stopPropagation()" data-note-id="note1085" onblur="if(window.fbSyncNote)window.fbSyncNote('note1085',this.textContent)">🏨 Hotel Le Chamonix</div>
       <div class="day-pills"><span class="pill pill-flag">✈ 抵達日</span></div>
     </div>
     <div class="day-chev">▼</div>
   </div>
   <div class="day-detail"><div class="detail-body">
     <div class="det-sec">
-      <div class="det-lbl">時間軸</div>
+      <div class="det-lbl">時間軸 <span class="edit-hint-badge">點擊文字可編輯</span></div>
       <div class="timeline" id="tl0">
         <div class="tl-item">
           <div class="tl-line"></div>
           <div class="tl-dot-col"><div class="tl-dot"></div></div>
           <div class="tl-content">
-            <div class="tl-time">00:30</div>
-            <div class="tl-title">EY145 起飛 TPE → 日內瓦</div>
+            <div class="tl-time" contenteditable="true" spellcheck="false" data-note-id="note1037" onblur="if(window.fbSyncNote)window.fbSyncNote('note1037',this.textContent)">00:30</div>
+            <div class="tl-title" contenteditable="true" spellcheck="false" data-note-id="note1001" onblur="if(window.fbSyncNote)window.fbSyncNote('note1001',this.textContent)">EY145 起飛 TPE → 日內瓦</div>
           </div>
         </div>
         <div class="tl-item">
           <div class="tl-line"></div>
           <div class="tl-dot-col"><div class="tl-dot"></div></div>
           <div class="tl-content">
-            <div class="tl-time">12:35</div>
-            <div class="tl-title">抵達日內瓦，機場搭巴士</div>
+            <div class="tl-time" contenteditable="true" spellcheck="false" data-note-id="note1038" onblur="if(window.fbSyncNote)window.fbSyncNote('note1038',this.textContent)">12:35</div>
+            <div class="tl-title" contenteditable="true" spellcheck="false" data-note-id="note1002" onblur="if(window.fbSyncNote)window.fbSyncNote('note1002',this.textContent)">抵達日內瓦，機場搭巴士</div>
             <div class="tl-desc" contenteditable="true" spellcheck="false" data-note-id="note1" onblur="if(window.fbSyncNote)window.fbSyncNote('note1',this.textContent)">日內瓦機場→Chamonix 約 1.5 小時</div>
           </div>
         </div>
         <div class="tl-item">
           <div class="tl-dot-col"><div class="tl-dot"></div></div>
           <div class="tl-content">
-            <div class="tl-time">14:00+</div>
-            <div class="tl-title">抵達 Chamonix，check-in</div>
+            <div class="tl-time" contenteditable="true" spellcheck="false" data-note-id="note1039" onblur="if(window.fbSyncNote)window.fbSyncNote('note1039',this.textContent)">14:00+</div>
+            <div class="tl-title" contenteditable="true" spellcheck="false" data-note-id="note1003" onblur="if(window.fbSyncNote)window.fbSyncNote('note1003',this.textContent)">抵達 Chamonix，check-in</div>
           </div>
         </div>
       </div>
@@ -391,25 +394,24 @@ main{max-width:800px;margin:0 auto;padding:1.25rem 1rem 4rem;}
   <div class="day-header" onclick="tog('c1')">
     <div class="day-num-col"><span class="dn">1</span><span class="dd">6/29 日</span></div>
     <div class="day-main">
-      <div class="day-city">Les Houches → Les Contamines</div>
-      <div class="day-hotel-lbl">🏨 Appartement en plein centre</div>
+      <div class="day-city" contenteditable="true" spellcheck="false" onclick="event.stopPropagation()" onfocus="event.stopPropagation()" data-note-id="note1074" onblur="if(window.fbSyncNote)window.fbSyncNote('note1074',this.textContent)">Les Houches → Les Contamines</div>
+      <div class="day-hotel-lbl" contenteditable="true" spellcheck="false" onclick="event.stopPropagation()" onfocus="event.stopPropagation()" data-note-id="note1086" onblur="if(window.fbSyncNote)window.fbSyncNote('note1086',this.textContent)">🏨 Appartement en plein centre</div>
       <div class="day-pills">
         <span class="pill pill-dist">⏱ 5h42m · 12km</span>
         <span class="pill pill-up">↑ 640m</span>
         <span class="pill pill-down">↓ 1,242m</span>
         <span class="pill pill-flag">🇫🇷 Hard</span>
-        <span class="pill pill-bag">行李接駁</span>
       </div>
     </div>
     <div class="day-chev">▼</div>
   </div>
   <div class="day-detail"><div class="detail-body">
     <div class="det-sec">
-      <div class="det-lbl">時間軸</div>
+      <div class="det-lbl">時間軸 <span class="edit-hint-badge">點擊文字可編輯</span></div>
       <div class="timeline" id="tl1">
-        <div class="tl-item"><div class="tl-line"></div><div class="tl-dot-col"><div class="tl-dot"></div></div><div class="tl-content"><div class="tl-time">早上</div><div class="tl-title">接駁車 Chamonix → Les Houches</div><div class="tl-desc" contenteditable="true" spellcheck="false" data-note-id="note2" onblur="if(window.fbSyncNote)window.fbSyncNote('note2',this.textContent)">搭接駁車出發點</div></div></div>
-        <div class="tl-item"><div class="tl-line"></div><div class="tl-dot-col"><div class="tl-dot"></div></div><div class="tl-content"><div class="tl-time">途中</div><div class="tl-title">纜車 Télécabine de Bellevue</div><div class="tl-desc" contenteditable="true" spellcheck="false" data-note-id="note3" onblur="if(window.fbSyncNote)window.fbSyncNote('note3',this.textContent)">Bellevue → Gare de Bellevue，省力關鍵</div></div></div>
-        <div class="tl-item"><div class="tl-dot-col"><div class="tl-dot"></div></div><div class="tl-content"><div class="tl-time">下午</div><div class="tl-title">抵達 Les Contamines-Montjoie</div></div></div>
+        <div class="tl-item"><div class="tl-line"></div><div class="tl-dot-col"><div class="tl-dot"></div></div><div class="tl-content"><div class="tl-time" contenteditable="true" spellcheck="false" data-note-id="note1040" onblur="if(window.fbSyncNote)window.fbSyncNote('note1040',this.textContent)">早上</div><div class="tl-title" contenteditable="true" spellcheck="false" data-note-id="note1004" onblur="if(window.fbSyncNote)window.fbSyncNote('note1004',this.textContent)">接駁車 Chamonix → Les Houches</div><div class="tl-desc" contenteditable="true" spellcheck="false" data-note-id="note2" onblur="if(window.fbSyncNote)window.fbSyncNote('note2',this.textContent)">搭接駁車出發點</div></div></div>
+        <div class="tl-item"><div class="tl-line"></div><div class="tl-dot-col"><div class="tl-dot"></div></div><div class="tl-content"><div class="tl-time" contenteditable="true" spellcheck="false" data-note-id="note1041" onblur="if(window.fbSyncNote)window.fbSyncNote('note1041',this.textContent)">途中</div><div class="tl-title" contenteditable="true" spellcheck="false" data-note-id="note1005" onblur="if(window.fbSyncNote)window.fbSyncNote('note1005',this.textContent)">纜車 Télécabine de Bellevue</div><div class="tl-desc" contenteditable="true" spellcheck="false" data-note-id="note3" onblur="if(window.fbSyncNote)window.fbSyncNote('note3',this.textContent)">Bellevue → Gare de Bellevue，省力關鍵</div></div></div>
+        <div class="tl-item"><div class="tl-dot-col"><div class="tl-dot"></div></div><div class="tl-content"><div class="tl-time" contenteditable="true" spellcheck="false" data-note-id="note1042" onblur="if(window.fbSyncNote)window.fbSyncNote('note1042',this.textContent)">下午</div><div class="tl-title" contenteditable="true" spellcheck="false" data-note-id="note1006" onblur="if(window.fbSyncNote)window.fbSyncNote('note1006',this.textContent)">抵達 Les Contamines-Montjoie</div></div></div>
       </div>
       <button class="btn-add" style="margin-top:8px;font-size:11px;padding:5px 12px;" onclick="addTlItem('tl1')">＋ 新增時間點</button>
     </div>
@@ -428,14 +430,13 @@ main{max-width:800px;margin:0 auto;padding:1.25rem 1rem 4rem;}
   <div class="day-header" onclick="tog('c2')">
     <div class="day-num-col"><span class="dn">2</span><span class="dd">6/30 一</span></div>
     <div class="day-main">
-      <div class="day-city">Les Contamines → Bourg Saint Maurice</div>
-      <div class="day-hotel-lbl">🏨 Appartement Chill 45m² + Studio cosy（分兩間）</div>
+      <div class="day-city" contenteditable="true" spellcheck="false" onclick="event.stopPropagation()" onfocus="event.stopPropagation()" data-note-id="note1075" onblur="if(window.fbSyncNote)window.fbSyncNote('note1075',this.textContent)">Les Contamines → Bourg Saint Maurice</div>
+      <div class="day-hotel-lbl" contenteditable="true" spellcheck="false" onclick="event.stopPropagation()" onfocus="event.stopPropagation()" data-note-id="note1087" onblur="if(window.fbSyncNote)window.fbSyncNote('note1087',this.textContent)">🏨 Appartement Chill 45m² + Studio cosy（分兩間）</div>
       <div class="day-pills">
         <span class="pill pill-dist">⏱ 7h58m · 18.7km</span>
         <span class="pill pill-up">↑ 1,326m</span>
         <span class="pill pill-down">↓ 930m</span>
         <span class="pill pill-flag">🇫🇷 Hard</span>
-        <span class="pill pill-bag">行李接駁</span>
       </div>
     </div>
     <div class="day-chev">▼</div>
@@ -443,12 +444,12 @@ main{max-width:800px;margin:0 auto;padding:1.25rem 1rem 4rem;}
   <div class="day-detail"><div class="detail-body">
     <div class="det-sec">
       <div class="tip-inline alert"><span class="tip-inline-icon">⚡</span><span class="tip-inline-text">接駁車不到時須自費計程車 €100（Les Chapieux → Bourg Saint Maurice），出發前確認班次</span></div>
-      <div class="det-lbl">時間軸</div>
+      <div class="det-lbl">時間軸 <span class="edit-hint-badge">點擊文字可編輯</span></div>
       <div class="timeline" id="tl2">
-        <div class="tl-item"><div class="tl-line"></div><div class="tl-dot-col"><div class="tl-dot"></div></div><div class="tl-content"><div class="tl-time">早上</div><div class="tl-title">Les Contamines 出發</div></div></div>
-        <div class="tl-item"><div class="tl-line"></div><div class="tl-dot-col"><div class="tl-dot"></div></div><div class="tl-content"><div class="tl-time">途中（最高點）</div><div class="tl-title">Col du Bonhomme 最高點 2,329m</div><div class="tl-desc" contenteditable="true" spellcheck="false" data-note-id="note4" onblur="if(window.fbSyncNote)window.fbSyncNote('note4',this.textContent)">最累的爬升段，注意補水</div></div></div>
-        <div class="tl-item"><div class="tl-line"></div><div class="tl-dot-col"><div class="tl-dot"></div></div><div class="tl-content"><div class="tl-time">下午</div><div class="tl-title">抵達 Les Chapieux，等接駁車</div></div></div>
-        <div class="tl-item"><div class="tl-dot-col"><div class="tl-dot"></div></div><div class="tl-content"><div class="tl-time">晚間</div><div class="tl-title">抵達 Bourg Saint Maurice</div></div></div>
+        <div class="tl-item"><div class="tl-line"></div><div class="tl-dot-col"><div class="tl-dot"></div></div><div class="tl-content"><div class="tl-time" contenteditable="true" spellcheck="false" data-note-id="note1043" onblur="if(window.fbSyncNote)window.fbSyncNote('note1043',this.textContent)">早上</div><div class="tl-title" contenteditable="true" spellcheck="false" data-note-id="note1007" onblur="if(window.fbSyncNote)window.fbSyncNote('note1007',this.textContent)">Les Contamines 出發</div></div></div>
+        <div class="tl-item"><div class="tl-line"></div><div class="tl-dot-col"><div class="tl-dot"></div></div><div class="tl-content"><div class="tl-time" contenteditable="true" spellcheck="false" data-note-id="note1044" onblur="if(window.fbSyncNote)window.fbSyncNote('note1044',this.textContent)">途中（最高點）</div><div class="tl-title" contenteditable="true" spellcheck="false" data-note-id="note1008" onblur="if(window.fbSyncNote)window.fbSyncNote('note1008',this.textContent)">Col du Bonhomme 最高點 2,329m</div><div class="tl-desc" contenteditable="true" spellcheck="false" data-note-id="note4" onblur="if(window.fbSyncNote)window.fbSyncNote('note4',this.textContent)">最累的爬升段，注意補水</div></div></div>
+        <div class="tl-item"><div class="tl-line"></div><div class="tl-dot-col"><div class="tl-dot"></div></div><div class="tl-content"><div class="tl-time" contenteditable="true" spellcheck="false" data-note-id="note1045" onblur="if(window.fbSyncNote)window.fbSyncNote('note1045',this.textContent)">下午</div><div class="tl-title" contenteditable="true" spellcheck="false" data-note-id="note1009" onblur="if(window.fbSyncNote)window.fbSyncNote('note1009',this.textContent)">抵達 Les Chapieux，等接駁車</div></div></div>
+        <div class="tl-item"><div class="tl-dot-col"><div class="tl-dot"></div></div><div class="tl-content"><div class="tl-time" contenteditable="true" spellcheck="false" data-note-id="note1046" onblur="if(window.fbSyncNote)window.fbSyncNote('note1046',this.textContent)">晚間</div><div class="tl-title" contenteditable="true" spellcheck="false" data-note-id="note1010" onblur="if(window.fbSyncNote)window.fbSyncNote('note1010',this.textContent)">抵達 Bourg Saint Maurice</div></div></div>
       </div>
       <button class="btn-add" style="margin-top:8px;font-size:11px;padding:5px 12px;" onclick="addTlItem('tl2')">＋ 新增時間點</button>
     </div>
@@ -467,14 +468,13 @@ main{max-width:800px;margin:0 auto;padding:1.25rem 1rem 4rem;}
   <div class="day-header" onclick="tog('c3')">
     <div class="day-num-col"><span class="dn">3</span><span class="dd">7/1 二</span></div>
     <div class="day-main">
-      <div class="day-city">Col de la Seigne 法義交界 → Courmayeur</div>
-      <div class="day-hotel-lbl">🏨 Residence Dolonne – Happy Rentals</div>
+      <div class="day-city" contenteditable="true" spellcheck="false" onclick="event.stopPropagation()" onfocus="event.stopPropagation()" data-note-id="note1076" onblur="if(window.fbSyncNote)window.fbSyncNote('note1076',this.textContent)">Col de la Seigne 法義交界 → Courmayeur</div>
+      <div class="day-hotel-lbl" contenteditable="true" spellcheck="false" onclick="event.stopPropagation()" onfocus="event.stopPropagation()" data-note-id="note1088" onblur="if(window.fbSyncNote)window.fbSyncNote('note1088',this.textContent)">🏨 Residence Dolonne – Happy Rentals</div>
       <div class="day-pills">
         <span class="pill pill-dist">⏱ 3h55m · 9.9km</span>
         <span class="pill pill-up">↑ 419m</span>
         <span class="pill pill-down">↓ 853m</span>
         <span class="pill pill-flag">🇫🇷→🇮🇹 Moderate</span>
-        <span class="pill pill-bag">行李接駁</span>
       </div>
     </div>
     <div class="day-chev">▼</div>
@@ -483,13 +483,13 @@ main{max-width:800px;margin:0 auto;padding:1.25rem 1rem 4rem;}
     <div class="det-sec">
       <div class="tip-inline alert"><span class="tip-inline-icon">🏠</span><span class="tip-inline-text">Residence Dolonne：抵達前一週需線上 check-in，Booking 可取消</span></div>
       <div class="tip-inline"><span class="tip-inline-icon">⚡</span><span class="tip-inline-text">體力備案：計程車 Bourg Saint Maurice → La Visaille，再徒步入 Courmayeur</span></div>
-      <div class="det-lbl">時間軸</div>
+      <div class="det-lbl">時間軸 <span class="edit-hint-badge">點擊文字可編輯</span></div>
       <div class="timeline" id="tl3">
-        <div class="tl-item"><div class="tl-line"></div><div class="tl-dot-col"><div class="tl-dot"></div></div><div class="tl-content"><div class="tl-time">早上</div><div class="tl-title">計程車 Bourg Saint Maurice → Refuge des Mottets</div></div></div>
-        <div class="tl-item"><div class="tl-line"></div><div class="tl-dot-col"><div class="tl-dot"></div></div><div class="tl-content"><div class="tl-time">途中</div><div class="tl-title">Col de la Seigne 法義交界疊石 2,516m</div><div class="tl-desc" contenteditable="true" spellcheck="false" data-note-id="note5" onblur="if(window.fbSyncNote)window.fbSyncNote('note5',this.textContent)">法國→義大利交界，必拍打卡點</div></div></div>
-        <div class="tl-item"><div class="tl-line"></div><div class="tl-dot-col"><div class="tl-dot"></div></div><div class="tl-content"><div class="tl-time">午餐</div><div class="tl-title">Rifugio Elisabetta 午餐</div></div></div>
-        <div class="tl-item"><div class="tl-line"></div><div class="tl-dot-col"><div class="tl-dot"></div></div><div class="tl-content"><div class="tl-time">下午</div><div class="tl-title">La Visaille → 巴士到 Courmayeur</div></div></div>
-        <div class="tl-item"><div class="tl-dot-col"><div class="tl-dot"></div></div><div class="tl-content"><div class="tl-time">抵達</div><div class="tl-title">Courmayeur check-in</div></div></div>
+        <div class="tl-item"><div class="tl-line"></div><div class="tl-dot-col"><div class="tl-dot"></div></div><div class="tl-content"><div class="tl-time" contenteditable="true" spellcheck="false" data-note-id="note1047" onblur="if(window.fbSyncNote)window.fbSyncNote('note1047',this.textContent)">早上</div><div class="tl-title" contenteditable="true" spellcheck="false" data-note-id="note1011" onblur="if(window.fbSyncNote)window.fbSyncNote('note1011',this.textContent)">計程車 Bourg Saint Maurice → Refuge des Mottets</div></div></div>
+        <div class="tl-item"><div class="tl-line"></div><div class="tl-dot-col"><div class="tl-dot"></div></div><div class="tl-content"><div class="tl-time" contenteditable="true" spellcheck="false" data-note-id="note1048" onblur="if(window.fbSyncNote)window.fbSyncNote('note1048',this.textContent)">途中</div><div class="tl-title" contenteditable="true" spellcheck="false" data-note-id="note1012" onblur="if(window.fbSyncNote)window.fbSyncNote('note1012',this.textContent)">Col de la Seigne 法義交界疊石 2,516m</div><div class="tl-desc" contenteditable="true" spellcheck="false" data-note-id="note5" onblur="if(window.fbSyncNote)window.fbSyncNote('note5',this.textContent)">法國→義大利交界，必拍打卡點</div></div></div>
+        <div class="tl-item"><div class="tl-line"></div><div class="tl-dot-col"><div class="tl-dot"></div></div><div class="tl-content"><div class="tl-time" contenteditable="true" spellcheck="false" data-note-id="note1049" onblur="if(window.fbSyncNote)window.fbSyncNote('note1049',this.textContent)">午餐</div><div class="tl-title" contenteditable="true" spellcheck="false" data-note-id="note1013" onblur="if(window.fbSyncNote)window.fbSyncNote('note1013',this.textContent)">Rifugio Elisabetta 午餐</div></div></div>
+        <div class="tl-item"><div class="tl-line"></div><div class="tl-dot-col"><div class="tl-dot"></div></div><div class="tl-content"><div class="tl-time" contenteditable="true" spellcheck="false" data-note-id="note1050" onblur="if(window.fbSyncNote)window.fbSyncNote('note1050',this.textContent)">下午</div><div class="tl-title" contenteditable="true" spellcheck="false" data-note-id="note1014" onblur="if(window.fbSyncNote)window.fbSyncNote('note1014',this.textContent)">La Visaille → 巴士到 Courmayeur</div></div></div>
+        <div class="tl-item"><div class="tl-dot-col"><div class="tl-dot"></div></div><div class="tl-content"><div class="tl-time" contenteditable="true" spellcheck="false" data-note-id="note1051" onblur="if(window.fbSyncNote)window.fbSyncNote('note1051',this.textContent)">抵達</div><div class="tl-title" contenteditable="true" spellcheck="false" data-note-id="note1015" onblur="if(window.fbSyncNote)window.fbSyncNote('note1015',this.textContent)">Courmayeur check-in</div></div></div>
       </div>
       <button class="btn-add" style="margin-top:8px;font-size:11px;padding:5px 12px;" onclick="addTlItem('tl3')">＋ 新增時間點</button>
     </div>
@@ -508,7 +508,7 @@ main{max-width:800px;margin:0 auto;padding:1.25rem 1rem 4rem;}
   <div class="day-header" onclick="tog('c4')">
     <div class="day-num-col"><span class="dn">4</span><span class="dd">7/2 三</span></div>
     <div class="day-main">
-      <div class="day-city">休息日 · Courmayeur</div>
+      <div class="day-city" contenteditable="true" spellcheck="false" onclick="event.stopPropagation()" onfocus="event.stopPropagation()" data-note-id="note1077" onblur="if(window.fbSyncNote)window.fbSyncNote('note1077',this.textContent)">休息日 · Courmayeur</div>
       <div class="day-pills"><span class="pill pill-rest">🌿 休息日</span><span class="pill pill-dist">輕裝 Bertone ≈5HR</span></div>
     </div>
     <div class="day-chev">▼</div>
@@ -517,8 +517,8 @@ main{max-width:800px;margin:0 auto;padding:1.25rem 1rem 4rem;}
     <div class="det-sec">
       <div class="det-lbl">選項</div>
       <div class="timeline" id="tl4">
-        <div class="tl-item"><div class="tl-line"></div><div class="tl-dot-col"><div class="tl-dot"></div></div><div class="tl-content"><div class="tl-time">選項A</div><div class="tl-title">輕裝 Bertone 健行（約 5HR）</div><div class="tl-desc" contenteditable="true" spellcheck="false" data-note-id="note6" onblur="if(window.fbSyncNote)window.fbSyncNote('note6',this.textContent)">無行李，欣賞 Mont Blanc 全景</div></div></div>
-        <div class="tl-item"><div class="tl-dot-col"><div class="tl-dot"></div></div><div class="tl-content"><div class="tl-time">選項B</div><div class="tl-title">耍廢一整天 ☕</div></div></div>
+        <div class="tl-item"><div class="tl-line"></div><div class="tl-dot-col"><div class="tl-dot"></div></div><div class="tl-content"><div class="tl-time" contenteditable="true" spellcheck="false" data-note-id="note1052" onblur="if(window.fbSyncNote)window.fbSyncNote('note1052',this.textContent)">選項A</div><div class="tl-title" contenteditable="true" spellcheck="false" data-note-id="note1016" onblur="if(window.fbSyncNote)window.fbSyncNote('note1016',this.textContent)">輕裝 Bertone 健行（約 5HR）</div><div class="tl-desc" contenteditable="true" spellcheck="false" data-note-id="note6" onblur="if(window.fbSyncNote)window.fbSyncNote('note6',this.textContent)">無行李，欣賞 Mont Blanc 全景</div></div></div>
+        <div class="tl-item"><div class="tl-dot-col"><div class="tl-dot"></div></div><div class="tl-content"><div class="tl-time" contenteditable="true" spellcheck="false" data-note-id="note1053" onblur="if(window.fbSyncNote)window.fbSyncNote('note1053',this.textContent)">選項B</div><div class="tl-title" contenteditable="true" spellcheck="false" data-note-id="note1017" onblur="if(window.fbSyncNote)window.fbSyncNote('note1017',this.textContent)">耍廢一整天 ☕</div></div></div>
       </div>
     </div>
     <div class="det-sec"><div class="map-section"><div class="det-lbl">📷 行程截圖</div><div class="map-grid" style="display:flex;flex-wrap:wrap;gap:8px;align-items:flex-start;margin-top:8px;" id="m4"><div class="upload-btn" onclick="this.querySelector('input[type=file]').click()"><input type="file" accept="image/*" multiple onchange="addMap('4',this)"><span class="upload-btn-icon">📷</span><span class="upload-btn-text">＋ 上傳截圖</span></div><button class="upload-btn" onclick="addMapLink('4')" style="background:var(--surface2);"><span class="upload-btn-icon">🔗</span><span class="upload-btn-text">貼圖片連結</span></button></div></div></div>
@@ -530,14 +530,13 @@ main{max-width:800px;margin:0 auto;padding:1.25rem 1rem 4rem;}
   <div class="day-header" onclick="tog('c5')">
     <div class="day-num-col"><span class="dn">5</span><span class="dd">7/3 四</span></div>
     <div class="day-main">
-      <div class="day-city">Courmayeur → Grand Col Ferret → Champex</div>
-      <div class="day-hotel-lbl">🏨 Le Catogne（兩間三人房）</div>
+      <div class="day-city" contenteditable="true" spellcheck="false" onclick="event.stopPropagation()" onfocus="event.stopPropagation()" data-note-id="note1078" onblur="if(window.fbSyncNote)window.fbSyncNote('note1078',this.textContent)">Courmayeur → Grand Col Ferret → Champex</div>
+      <div class="day-hotel-lbl" contenteditable="true" spellcheck="false" onclick="event.stopPropagation()" onfocus="event.stopPropagation()" data-note-id="note1089" onblur="if(window.fbSyncNote)window.fbSyncNote('note1089',this.textContent)">🏨 Le Catogne（兩間三人房）</div>
       <div class="day-pills">
         <span class="pill pill-dist">⏱ 7HR</span>
         <span class="pill pill-up">↑ 800m</span>
         <span class="pill pill-down">↓ 800m</span>
         <span class="pill pill-flag">🇮🇹→🇨🇭</span>
-        <span class="pill pill-bag">行李接駁</span>
       </div>
     </div>
     <div class="day-chev">▼</div>
@@ -545,12 +544,12 @@ main{max-width:800px;margin:0 auto;padding:1.25rem 1rem 4rem;}
   <div class="day-detail"><div class="detail-body">
     <div class="det-sec">
       <div class="tip-inline"><span class="tip-inline-icon">🚌</span><span class="tip-inline-text">Val Ferret 綠線巴士（Line RV）：7:00 從 Courmayeur 鎮中心出發 → Arnouva，約 30-40 分鐘，提早到站</span></div>
-      <div class="det-lbl">時間軸</div>
+      <div class="det-lbl">時間軸 <span class="edit-hint-badge">點擊文字可編輯</span></div>
       <div class="timeline" id="tl5">
-        <div class="tl-item"><div class="tl-line"></div><div class="tl-dot-col"><div class="tl-dot"></div></div><div class="tl-content"><div class="tl-time">07:00</div><div class="tl-title">搭接駁車 Courmayeur → Arnouva</div></div></div>
-        <div class="tl-item"><div class="tl-line"></div><div class="tl-dot-col"><div class="tl-dot"></div></div><div class="tl-content"><div class="tl-time">途中</div><div class="tl-title">Rifugio Elena 山屋</div></div></div>
-        <div class="tl-item"><div class="tl-line"></div><div class="tl-dot-col"><div class="tl-dot"></div></div><div class="tl-content"><div class="tl-time">最高點</div><div class="tl-title">Grand Col Ferret 大費雷山口 2,537m</div><div class="tl-desc" contenteditable="true" spellcheck="false" data-note-id="note7" onblur="if(window.fbSyncNote)window.fbSyncNote('note7',this.textContent)">義大利→瑞士交界，360度全景</div></div></div>
-        <div class="tl-item"><div class="tl-dot-col"><div class="tl-dot"></div></div><div class="tl-content"><div class="tl-time">下午</div><div class="tl-title">Ferret 搭車到 Champex</div></div></div>
+        <div class="tl-item"><div class="tl-line"></div><div class="tl-dot-col"><div class="tl-dot"></div></div><div class="tl-content"><div class="tl-time" contenteditable="true" spellcheck="false" data-note-id="note1054" onblur="if(window.fbSyncNote)window.fbSyncNote('note1054',this.textContent)">07:00</div><div class="tl-title" contenteditable="true" spellcheck="false" data-note-id="note1018" onblur="if(window.fbSyncNote)window.fbSyncNote('note1018',this.textContent)">搭接駁車 Courmayeur → Arnouva</div></div></div>
+        <div class="tl-item"><div class="tl-line"></div><div class="tl-dot-col"><div class="tl-dot"></div></div><div class="tl-content"><div class="tl-time" contenteditable="true" spellcheck="false" data-note-id="note1055" onblur="if(window.fbSyncNote)window.fbSyncNote('note1055',this.textContent)">途中</div><div class="tl-title" contenteditable="true" spellcheck="false" data-note-id="note1019" onblur="if(window.fbSyncNote)window.fbSyncNote('note1019',this.textContent)">Rifugio Elena 山屋</div></div></div>
+        <div class="tl-item"><div class="tl-line"></div><div class="tl-dot-col"><div class="tl-dot"></div></div><div class="tl-content"><div class="tl-time" contenteditable="true" spellcheck="false" data-note-id="note1056" onblur="if(window.fbSyncNote)window.fbSyncNote('note1056',this.textContent)">最高點</div><div class="tl-title" contenteditable="true" spellcheck="false" data-note-id="note1020" onblur="if(window.fbSyncNote)window.fbSyncNote('note1020',this.textContent)">Grand Col Ferret 大費雷山口 2,537m</div><div class="tl-desc" contenteditable="true" spellcheck="false" data-note-id="note7" onblur="if(window.fbSyncNote)window.fbSyncNote('note7',this.textContent)">義大利→瑞士交界，360度全景</div></div></div>
+        <div class="tl-item"><div class="tl-dot-col"><div class="tl-dot"></div></div><div class="tl-content"><div class="tl-time" contenteditable="true" spellcheck="false" data-note-id="note1057" onblur="if(window.fbSyncNote)window.fbSyncNote('note1057',this.textContent)">下午</div><div class="tl-title" contenteditable="true" spellcheck="false" data-note-id="note1021" onblur="if(window.fbSyncNote)window.fbSyncNote('note1021',this.textContent)">Ferret 搭車到 Champex</div></div></div>
       </div>
       <button class="btn-add" style="margin-top:8px;font-size:11px;padding:5px 12px;" onclick="addTlItem('tl5')">＋ 新增時間點</button>
     </div>
@@ -567,8 +566,8 @@ main{max-width:800px;margin:0 auto;padding:1.25rem 1rem 4rem;}
   <div class="day-header" onclick="tog('c6')">
     <div class="day-num-col"><span class="dn">6</span><span class="dd">7/4 五</span></div>
     <div class="day-main">
-      <div class="day-city">Champex → Trient → Vallorcine</div>
-      <div class="day-hotel-lbl">🏨 Airbnb Vallorcine（有泳池）</div>
+      <div class="day-city" contenteditable="true" spellcheck="false" onclick="event.stopPropagation()" onfocus="event.stopPropagation()" data-note-id="note1079" onblur="if(window.fbSyncNote)window.fbSyncNote('note1079',this.textContent)">Champex → Trient → Vallorcine</div>
+      <div class="day-hotel-lbl" contenteditable="true" spellcheck="false" onclick="event.stopPropagation()" onfocus="event.stopPropagation()" data-note-id="note1090" onblur="if(window.fbSyncNote)window.fbSyncNote('note1090',this.textContent)">🏨 Airbnb Vallorcine（有泳池）</div>
       <div class="day-pills">
         <span class="pill pill-dist">⏱ 7HR</span>
         <span class="pill pill-up">↑ 800m</span>
@@ -580,11 +579,11 @@ main{max-width:800px;margin:0 auto;padding:1.25rem 1rem 4rem;}
   </div>
   <div class="day-detail"><div class="detail-body">
     <div class="det-sec">
-      <div class="det-lbl">時間軸</div>
+      <div class="det-lbl">時間軸 <span class="edit-hint-badge">點擊文字可編輯</span></div>
       <div class="timeline" id="tl6">
-        <div class="tl-item"><div class="tl-line"></div><div class="tl-dot-col"><div class="tl-dot"></div></div><div class="tl-content"><div class="tl-time">早上</div><div class="tl-title">Champex 出發</div></div></div>
-        <div class="tl-item"><div class="tl-line"></div><div class="tl-dot-col"><div class="tl-dot"></div></div><div class="tl-content"><div class="tl-time">途中</div><div class="tl-title">Trient 小村莊</div></div></div>
-        <div class="tl-item"><div class="tl-dot-col"><div class="tl-dot"></div></div><div class="tl-content"><div class="tl-time">下午</div><div class="tl-title">搭火車到 Vallorcine（地址：44 route des confins）</div></div></div>
+        <div class="tl-item"><div class="tl-line"></div><div class="tl-dot-col"><div class="tl-dot"></div></div><div class="tl-content"><div class="tl-time" contenteditable="true" spellcheck="false" data-note-id="note1058" onblur="if(window.fbSyncNote)window.fbSyncNote('note1058',this.textContent)">早上</div><div class="tl-title" contenteditable="true" spellcheck="false" data-note-id="note1022" onblur="if(window.fbSyncNote)window.fbSyncNote('note1022',this.textContent)">Champex 出發</div></div></div>
+        <div class="tl-item"><div class="tl-line"></div><div class="tl-dot-col"><div class="tl-dot"></div></div><div class="tl-content"><div class="tl-time" contenteditable="true" spellcheck="false" data-note-id="note1059" onblur="if(window.fbSyncNote)window.fbSyncNote('note1059',this.textContent)">途中</div><div class="tl-title" contenteditable="true" spellcheck="false" data-note-id="note1023" onblur="if(window.fbSyncNote)window.fbSyncNote('note1023',this.textContent)">Trient 小村莊</div></div></div>
+        <div class="tl-item"><div class="tl-dot-col"><div class="tl-dot"></div></div><div class="tl-content"><div class="tl-time" contenteditable="true" spellcheck="false" data-note-id="note1060" onblur="if(window.fbSyncNote)window.fbSyncNote('note1060',this.textContent)">下午</div><div class="tl-title" contenteditable="true" spellcheck="false" data-note-id="note1024" onblur="if(window.fbSyncNote)window.fbSyncNote('note1024',this.textContent)">搭火車到 Vallorcine（地址：44 route des confins）</div></div></div>
       </div>
       <button class="btn-add" style="margin-top:8px;font-size:11px;padding:5px 12px;" onclick="addTlItem('tl6')">＋ 新增時間點</button>
     </div>
@@ -601,8 +600,8 @@ main{max-width:800px;margin:0 auto;padding:1.25rem 1rem 4rem;}
   <div class="day-header" onclick="tog('c7')">
     <div class="day-num-col"><span class="dn">7</span><span class="dd">7/5 六</span></div>
     <div class="day-main">
-      <div class="day-city">Vallorcine ↔ Col de Balme 稜線（來回）</div>
-      <div class="day-hotel-lbl">🏨 繼續住 Vallorcine</div>
+      <div class="day-city" contenteditable="true" spellcheck="false" onclick="event.stopPropagation()" onfocus="event.stopPropagation()" data-note-id="note1080" onblur="if(window.fbSyncNote)window.fbSyncNote('note1080',this.textContent)">Vallorcine ↔ Col de Balme 稜線（來回）</div>
+      <div class="day-hotel-lbl" contenteditable="true" spellcheck="false" onclick="event.stopPropagation()" onfocus="event.stopPropagation()" data-note-id="note1091" onblur="if(window.fbSyncNote)window.fbSyncNote('note1091',this.textContent)">🏨 繼續住 Vallorcine</div>
       <div class="day-pills">
         <span class="pill pill-dist">⏱ 4HR</span>
         <span class="pill pill-up">↑ 150m</span>
@@ -615,11 +614,11 @@ main{max-width:800px;margin:0 auto;padding:1.25rem 1rem 4rem;}
   <div class="day-detail"><div class="detail-body">
     <div class="det-sec">
       <div class="tip-inline"><span class="tip-inline-icon">🚡</span><span class="tip-inline-text">需買 Vallorcine ↔ Col de Balme 來回票（兩段：Vallorcine↔Charamillon + Charamillon↔Autannes）</span></div>
-      <div class="det-lbl">時間軸</div>
+      <div class="det-lbl">時間軸 <span class="edit-hint-badge">點擊文字可編輯</span></div>
       <div class="timeline" id="tl7">
-        <div class="tl-item"><div class="tl-line"></div><div class="tl-dot-col"><div class="tl-dot"></div></div><div class="tl-content"><div class="tl-time">上山</div><div class="tl-title">搭兩段纜車直達頂端</div><div class="tl-desc" contenteditable="true" spellcheck="false" data-note-id="note8" onblur="if(window.fbSyncNote)window.fbSyncNote('note8',this.textContent)">Vallorcine → Charamillon → Autannes，拍紅窗框山屋</div></div></div>
-        <div class="tl-item"><div class="tl-line"></div><div class="tl-dot-col"><div class="tl-dot"></div></div><div class="tl-content"><div class="tl-time">精華段</div><div class="tl-title">稜線往 Aiguilles des Posettes（約 45-60 分鐘）</div><div class="tl-desc" contenteditable="true" spellcheck="false" data-note-id="note9" onblur="if(window.fbSyncNote)window.fbSyncNote('note9',this.textContent)">全段最漂亮的平緩稜線，180度視野</div></div></div>
-        <div class="tl-item"><div class="tl-dot-col"><div class="tl-dot"></div></div><div class="tl-content"><div class="tl-time">下山</div><div class="tl-title">折返 Charamillon 搭纜車回 Vallorcine</div><div class="tl-desc" contenteditable="true" spellcheck="false" data-note-id="note10" onblur="if(window.fbSyncNote)window.fbSyncNote('note10',this.textContent)">省去對膝蓋負擔大的陡降森林段</div></div></div>
+        <div class="tl-item"><div class="tl-line"></div><div class="tl-dot-col"><div class="tl-dot"></div></div><div class="tl-content"><div class="tl-time" contenteditable="true" spellcheck="false" data-note-id="note1061" onblur="if(window.fbSyncNote)window.fbSyncNote('note1061',this.textContent)">上山</div><div class="tl-title" contenteditable="true" spellcheck="false" data-note-id="note1025" onblur="if(window.fbSyncNote)window.fbSyncNote('note1025',this.textContent)">搭兩段纜車直達頂端</div><div class="tl-desc" contenteditable="true" spellcheck="false" data-note-id="note8" onblur="if(window.fbSyncNote)window.fbSyncNote('note8',this.textContent)">Vallorcine → Charamillon → Autannes，拍紅窗框山屋</div></div></div>
+        <div class="tl-item"><div class="tl-line"></div><div class="tl-dot-col"><div class="tl-dot"></div></div><div class="tl-content"><div class="tl-time" contenteditable="true" spellcheck="false" data-note-id="note1062" onblur="if(window.fbSyncNote)window.fbSyncNote('note1062',this.textContent)">精華段</div><div class="tl-title" contenteditable="true" spellcheck="false" data-note-id="note1026" onblur="if(window.fbSyncNote)window.fbSyncNote('note1026',this.textContent)">稜線往 Aiguilles des Posettes（約 45-60 分鐘）</div><div class="tl-desc" contenteditable="true" spellcheck="false" data-note-id="note9" onblur="if(window.fbSyncNote)window.fbSyncNote('note9',this.textContent)">全段最漂亮的平緩稜線，180度視野</div></div></div>
+        <div class="tl-item"><div class="tl-dot-col"><div class="tl-dot"></div></div><div class="tl-content"><div class="tl-time" contenteditable="true" spellcheck="false" data-note-id="note1063" onblur="if(window.fbSyncNote)window.fbSyncNote('note1063',this.textContent)">下山</div><div class="tl-title" contenteditable="true" spellcheck="false" data-note-id="note1027" onblur="if(window.fbSyncNote)window.fbSyncNote('note1027',this.textContent)">折返 Charamillon 搭纜車回 Vallorcine</div><div class="tl-desc" contenteditable="true" spellcheck="false" data-note-id="note10" onblur="if(window.fbSyncNote)window.fbSyncNote('note10',this.textContent)">省去對膝蓋負擔大的陡降森林段</div></div></div>
       </div>
       <button class="btn-add" style="margin-top:8px;font-size:11px;padding:5px 12px;" onclick="addTlItem('tl7')">＋ 新增時間點</button>
     </div>
@@ -636,7 +635,7 @@ main{max-width:800px;margin:0 auto;padding:1.25rem 1rem 4rem;}
   <div class="day-header" onclick="tog('c8')">
     <div class="day-num-col"><span class="dn">8</span><span class="dd">7/6 日</span></div>
     <div class="day-main">
-      <div class="day-city">Tré-le-Champ → Lac Blanc 白湖 → Chamonix</div>
+      <div class="day-city" contenteditable="true" spellcheck="false" onclick="event.stopPropagation()" onfocus="event.stopPropagation()" data-note-id="note1081" onblur="if(window.fbSyncNote)window.fbSyncNote('note1081',this.textContent)">Tré-le-Champ → Lac Blanc 白湖 → Chamonix</div>
       <div class="day-pills">
         <span class="pill pill-dist">⏱ 7HR</span>
         <span class="pill pill-up">↑ 1,000m</span>
@@ -650,10 +649,10 @@ main{max-width:800px;margin:0 auto;padding:1.25rem 1rem 4rem;}
     <div class="det-sec">
       <div class="det-lbl">時間軸（三段）</div>
       <div class="timeline" id="tl8">
-        <div class="tl-item"><div class="tl-line"></div><div class="tl-dot-col"><div class="tl-dot"></div></div><div class="tl-content"><div class="tl-time">出發</div><div class="tl-title">Vallorcine 搭火車 → Tré-le-Champ</div></div></div>
-        <div class="tl-item"><div class="tl-line"></div><div class="tl-dot-col"><div class="tl-dot"></div></div><div class="tl-content"><div class="tl-time">第一段 2.5-3HR</div><div class="tl-title">🪜 著名垂直金屬梯子段 → Tête aux Vents</div><div class="tl-desc" contenteditable="true" spellcheck="false" data-note-id="note11" onblur="if(window.fbSyncNote)window.fbSyncNote('note11',this.textContent)">最刺激！6人依序排隊上下，需預留拍照時間</div></div></div>
-        <div class="tl-item"><div class="tl-line"></div><div class="tl-dot-col"><div class="tl-dot"></div></div><div class="tl-content"><div class="tl-time">第二段 1-1.5HR</div><div class="tl-title">🌊 Lac Blanc 白湖</div><div class="tl-desc" contenteditable="true" spellcheck="false" data-note-id="note12" onblur="if(window.fbSyncNote)window.fbSyncNote('note12',this.textContent)">精華段！建議留 1 小時拍 Mont Blanc 倒影</div></div></div>
-        <div class="tl-item"><div class="tl-dot-col"><div class="tl-dot"></div></div><div class="tl-content"><div class="tl-time">第三段 1.5-2HR</div><div class="tl-title">La Flégère 纜車站下山 → Chamonix</div><div class="tl-desc" contenteditable="true" spellcheck="false" data-note-id="note13" onblur="if(window.fbSyncNote)window.fbSyncNote('note13',this.textContent)">碎石路面，腳已疲勞，注意扭傷</div></div></div>
+        <div class="tl-item"><div class="tl-line"></div><div class="tl-dot-col"><div class="tl-dot"></div></div><div class="tl-content"><div class="tl-time" contenteditable="true" spellcheck="false" data-note-id="note1064" onblur="if(window.fbSyncNote)window.fbSyncNote('note1064',this.textContent)">出發</div><div class="tl-title" contenteditable="true" spellcheck="false" data-note-id="note1028" onblur="if(window.fbSyncNote)window.fbSyncNote('note1028',this.textContent)">Vallorcine 搭火車 → Tré-le-Champ</div></div></div>
+        <div class="tl-item"><div class="tl-line"></div><div class="tl-dot-col"><div class="tl-dot"></div></div><div class="tl-content"><div class="tl-time" contenteditable="true" spellcheck="false" data-note-id="note1065" onblur="if(window.fbSyncNote)window.fbSyncNote('note1065',this.textContent)">第一段 2.5-3HR</div><div class="tl-title" contenteditable="true" spellcheck="false" data-note-id="note1029" onblur="if(window.fbSyncNote)window.fbSyncNote('note1029',this.textContent)">🪜 著名垂直金屬梯子段 → Tête aux Vents</div><div class="tl-desc" contenteditable="true" spellcheck="false" data-note-id="note11" onblur="if(window.fbSyncNote)window.fbSyncNote('note11',this.textContent)">最刺激！6人依序排隊上下，需預留拍照時間</div></div></div>
+        <div class="tl-item"><div class="tl-line"></div><div class="tl-dot-col"><div class="tl-dot"></div></div><div class="tl-content"><div class="tl-time" contenteditable="true" spellcheck="false" data-note-id="note1066" onblur="if(window.fbSyncNote)window.fbSyncNote('note1066',this.textContent)">第二段 1-1.5HR</div><div class="tl-title" contenteditable="true" spellcheck="false" data-note-id="note1030" onblur="if(window.fbSyncNote)window.fbSyncNote('note1030',this.textContent)">🌊 Lac Blanc 白湖</div><div class="tl-desc" contenteditable="true" spellcheck="false" data-note-id="note12" onblur="if(window.fbSyncNote)window.fbSyncNote('note12',this.textContent)">精華段！建議留 1 小時拍 Mont Blanc 倒影</div></div></div>
+        <div class="tl-item"><div class="tl-dot-col"><div class="tl-dot"></div></div><div class="tl-content"><div class="tl-time" contenteditable="true" spellcheck="false" data-note-id="note1067" onblur="if(window.fbSyncNote)window.fbSyncNote('note1067',this.textContent)">第三段 1.5-2HR</div><div class="tl-title" contenteditable="true" spellcheck="false" data-note-id="note1031" onblur="if(window.fbSyncNote)window.fbSyncNote('note1031',this.textContent)">La Flégère 纜車站下山 → Chamonix</div><div class="tl-desc" contenteditable="true" spellcheck="false" data-note-id="note13" onblur="if(window.fbSyncNote)window.fbSyncNote('note13',this.textContent)">碎石路面，腳已疲勞，注意扭傷</div></div></div>
       </div>
       <button class="btn-add" style="margin-top:8px;font-size:11px;padding:5px 12px;" onclick="addTlItem('tl8')">＋ 新增時間點</button>
     </div>
@@ -670,8 +669,8 @@ main{max-width:800px;margin:0 auto;padding:1.25rem 1rem 4rem;}
   <div class="day-header" onclick="tog('c9')">
     <div class="day-num-col"><span class="dn">9</span><span class="dd">7/7 一</span></div>
     <div class="day-main">
-      <div class="day-city">解散 → 策馬特 Zermatt</div>
-      <div class="day-hotel-lbl">🏨 Ascot Penthouse 160m²（5人：佑容、雅筑、怡珊、奕凱、土豆）</div>
+      <div class="day-city" contenteditable="true" spellcheck="false" onclick="event.stopPropagation()" onfocus="event.stopPropagation()" data-note-id="note1082" onblur="if(window.fbSyncNote)window.fbSyncNote('note1082',this.textContent)">解散 → 策馬特 Zermatt</div>
+      <div class="day-hotel-lbl" contenteditable="true" spellcheck="false" onclick="event.stopPropagation()" onfocus="event.stopPropagation()" data-note-id="note1092" onblur="if(window.fbSyncNote)window.fbSyncNote('note1092',this.textContent)">🏨 Ascot Penthouse 160m²（5人：佑容、雅筑、怡珊、奕凱、土豆）</div>
       <div class="day-pills"><span class="pill pill-rest">🎉 TMB 完成！</span><span class="pill pill-flag">策馬特 5人</span></div>
     </div>
     <div class="day-chev">▼</div>
@@ -679,10 +678,10 @@ main{max-width:800px;margin:0 auto;padding:1.25rem 1rem 4rem;}
   <div class="day-detail"><div class="detail-body">
     <div class="det-sec">
       <div class="tip-inline alert"><span class="tip-inline-icon">🏦</span><span class="tip-inline-text">Ascot Penthouse 6/10 扣款，注意帳戶餘額（Jane 此日起不同行）</span></div>
-      <div class="det-lbl">時間軸</div>
+      <div class="det-lbl">時間軸 <span class="edit-hint-badge">點擊文字可編輯</span></div>
       <div class="timeline" id="tl9">
-        <div class="tl-item"><div class="tl-line"></div><div class="tl-dot-col"><div class="tl-dot"></div></div><div class="tl-content"><div class="tl-time">早上</div><div class="tl-title">TMB 終點，各自前往策馬特</div><div class="tl-desc" contenteditable="true" spellcheck="false" data-note-id="note14" onblur="if(window.fbSyncNote)window.fbSyncNote('note14',this.textContent)">可搭火車：Chamonix → Martigny → Visp → Zermatt，約 3-4 小時</div></div></div>
-        <div class="tl-item"><div class="tl-dot-col"><div class="tl-dot"></div></div><div class="tl-content"><div class="tl-time">下午</div><div class="tl-title">Ascot Penthouse check-in，休息</div></div></div>
+        <div class="tl-item"><div class="tl-line"></div><div class="tl-dot-col"><div class="tl-dot"></div></div><div class="tl-content"><div class="tl-time" contenteditable="true" spellcheck="false" data-note-id="note1068" onblur="if(window.fbSyncNote)window.fbSyncNote('note1068',this.textContent)">早上</div><div class="tl-title" contenteditable="true" spellcheck="false" data-note-id="note1032" onblur="if(window.fbSyncNote)window.fbSyncNote('note1032',this.textContent)">TMB 終點，各自前往策馬特</div><div class="tl-desc" contenteditable="true" spellcheck="false" data-note-id="note14" onblur="if(window.fbSyncNote)window.fbSyncNote('note14',this.textContent)">可搭火車：Chamonix → Martigny → Visp → Zermatt，約 3-4 小時</div></div></div>
+        <div class="tl-item"><div class="tl-dot-col"><div class="tl-dot"></div></div><div class="tl-content"><div class="tl-time" contenteditable="true" spellcheck="false" data-note-id="note1069" onblur="if(window.fbSyncNote)window.fbSyncNote('note1069',this.textContent)">下午</div><div class="tl-title" contenteditable="true" spellcheck="false" data-note-id="note1033" onblur="if(window.fbSyncNote)window.fbSyncNote('note1033',this.textContent)">Ascot Penthouse check-in，休息</div></div></div>
       </div>
       <button class="btn-add" style="margin-top:8px;font-size:11px;padding:5px 12px;" onclick="addTlItem('tl9')">＋ 新增時間點</button>
     </div>
@@ -695,17 +694,17 @@ main{max-width:800px;margin:0 auto;padding:1.25rem 1rem 4rem;}
   <div class="day-header" onclick="tog('c10')">
     <div class="day-num-col"><span class="dn">10</span><span class="dd">7/8 二</span></div>
     <div class="day-main">
-      <div class="day-city">策馬特 · 第一天</div>
-      <div class="day-hotel-lbl">🏨 Ascot Penthouse（5人）</div>
+      <div class="day-city" contenteditable="true" spellcheck="false" onclick="event.stopPropagation()" onfocus="event.stopPropagation()" data-note-id="note1083" onblur="if(window.fbSyncNote)window.fbSyncNote('note1083',this.textContent)">策馬特 · 第一天</div>
+      <div class="day-hotel-lbl" contenteditable="true" spellcheck="false" onclick="event.stopPropagation()" onfocus="event.stopPropagation()" data-note-id="note1093" onblur="if(window.fbSyncNote)window.fbSyncNote('note1093',this.textContent)">🏨 Ascot Penthouse（5人）</div>
       <div class="day-pills"><span class="pill pill-rest">🏔 馬特洪峰</span></div>
     </div>
     <div class="day-chev">▼</div>
   </div>
   <div class="day-detail"><div class="detail-body">
     <div class="det-sec">
-      <div class="det-lbl">時間軸</div>
+      <div class="det-lbl">時間軸 <span class="edit-hint-badge">點擊文字可編輯</span></div>
       <div class="timeline" id="tl10">
-        <div class="tl-item"><div class="tl-dot-col"><div class="tl-dot"></div></div><div class="tl-content"><div class="tl-time" contenteditable="true" spellcheck="false" style="outline:none;border-bottom:1px dashed var(--border2);">時間</div><div class="tl-title" contenteditable="true" spellcheck="false" style="outline:none;border-bottom:1px dashed var(--border2);">自由填入行程</div><div class="tl-desc" contenteditable="true" spellcheck="false" data-note-id="note15" onblur="if(window.fbSyncNote)window.fbSyncNote('note15',this.textContent)">例：Gornergrat 登山鐵路、馬特洪峰博物館</div></div></div>
+        <div class="tl-item"><div class="tl-dot-col"><div class="tl-dot"></div></div><div class="tl-content"><div class="tl-time" contenteditable="true" spellcheck="false" style="outline:none;border-bottom:1px dashed var(--border2);" data-note-id="note1070" onblur="if(window.fbSyncNote)window.fbSyncNote('note1070',this.textContent)">時間</div><div class="tl-title" contenteditable="true" spellcheck="false" style="outline:none;border-bottom:1px dashed var(--border2);" data-note-id="note1034" onblur="if(window.fbSyncNote)window.fbSyncNote('note1034',this.textContent)">自由填入行程</div><div class="tl-desc" contenteditable="true" spellcheck="false" data-note-id="note15" onblur="if(window.fbSyncNote)window.fbSyncNote('note15',this.textContent)">例：Gornergrat 登山鐵路、馬特洪峰博物館</div></div></div>
       </div>
       <button class="btn-add" style="margin-top:8px;font-size:11px;padding:5px 12px;" onclick="addTlItem('tl10')">＋ 新增時間點</button>
     </div>
@@ -718,17 +717,17 @@ main{max-width:800px;margin:0 auto;padding:1.25rem 1rem 4rem;}
   <div class="day-header" onclick="tog('c11')">
     <div class="day-num-col"><span class="dn">11</span><span class="dd">7/9 三</span></div>
     <div class="day-main">
-      <div class="day-city">策馬特 · 第二天 / 離開</div>
-      <div class="day-hotel-lbl">🏨 Ascot Penthouse（5人）</div>
+      <div class="day-city" contenteditable="true" spellcheck="false" onclick="event.stopPropagation()" onfocus="event.stopPropagation()" data-note-id="note1084" onblur="if(window.fbSyncNote)window.fbSyncNote('note1084',this.textContent)">策馬特 · 第二天 / 離開</div>
+      <div class="day-hotel-lbl" contenteditable="true" spellcheck="false" onclick="event.stopPropagation()" onfocus="event.stopPropagation()" data-note-id="note1094" onblur="if(window.fbSyncNote)window.fbSyncNote('note1094',this.textContent)">🏨 Ascot Penthouse（5人）</div>
       <div class="day-pills"><span class="pill pill-rest">🏔 策馬特</span></div>
     </div>
     <div class="day-chev">▼</div>
   </div>
   <div class="day-detail"><div class="detail-body">
     <div class="det-sec">
-      <div class="det-lbl">時間軸</div>
+      <div class="det-lbl">時間軸 <span class="edit-hint-badge">點擊文字可編輯</span></div>
       <div class="timeline" id="tl11">
-        <div class="tl-item"><div class="tl-dot-col"><div class="tl-dot"></div></div><div class="tl-content"><div class="tl-time" contenteditable="true" spellcheck="false" style="outline:none;border-bottom:1px dashed var(--border2);">時間</div><div class="tl-title" contenteditable="true" spellcheck="false" style="outline:none;border-bottom:1px dashed var(--border2);">自由填入行程</div><div class="tl-desc" contenteditable="true" spellcheck="false" data-note-id="note16" onblur="if(window.fbSyncNote)window.fbSyncNote('note16',this.textContent)">例：Klein Matterhorn 纜車（最高到 3,883m）、Five Lakes Trail</div></div></div>
+        <div class="tl-item"><div class="tl-dot-col"><div class="tl-dot"></div></div><div class="tl-content"><div class="tl-time" contenteditable="true" spellcheck="false" style="outline:none;border-bottom:1px dashed var(--border2);" data-note-id="note1071" onblur="if(window.fbSyncNote)window.fbSyncNote('note1071',this.textContent)">時間</div><div class="tl-title" contenteditable="true" spellcheck="false" style="outline:none;border-bottom:1px dashed var(--border2);" data-note-id="note1035" onblur="if(window.fbSyncNote)window.fbSyncNote('note1035',this.textContent)">自由填入行程</div><div class="tl-desc" contenteditable="true" spellcheck="false" data-note-id="note16" onblur="if(window.fbSyncNote)window.fbSyncNote('note16',this.textContent)">例：Klein Matterhorn 纜車（最高到 3,883m）、Five Lakes Trail</div></div></div>
       </div>
       <button class="btn-add" style="margin-top:8px;font-size:11px;padding:5px 12px;" onclick="addTlItem('tl11')">＋ 新增時間點</button>
     </div>
@@ -840,7 +839,7 @@ function jumpDay(d){document.querySelectorAll('.prog-day').forEach(e=>e.classLis
 function markToday(){const S=new Date('2026-06-28'),N=new Date();if(N>=S&&N<=new Date('2026-07-09')){const d=Math.floor((N-S)/86400000);const el=document.querySelector(`.prog-day[data-day="${d}"]`);if(el){el.classList.add('today-day');}}}
 
 // ── TIMELINE ADD ──
-function addTlItem(tlId){const tl=document.getElementById(tlId);const d=document.createElement('div');d.className='tl-item';d.innerHTML=`<div class="tl-dot-col"><div class="tl-dot"></div></div><div class="tl-content"><div class="tl-time" contenteditable="true" spellcheck="false" style="outline:none;border-bottom:1px dashed var(--border2);">時間</div><div class="tl-title" contenteditable="true" spellcheck="false" style="outline:none;border-bottom:1px dashed var(--border2);">事件標題</div><div class="tl-desc" contenteditable="true" spellcheck="false" data-note-id="note17" onblur="if(window.fbSyncNote)window.fbSyncNote('note17',this.textContent)">詳細說明（可刪除）</div></div>`;tl.appendChild(d);}
+function addTlItem(tlId){const tl=document.getElementById(tlId);const d=document.createElement('div');d.className='tl-item';d.innerHTML=`<div class="tl-dot-col"><div class="tl-dot"></div></div><div class="tl-content"><div class="tl-time" contenteditable="true" spellcheck="false" style="outline:none;border-bottom:1px dashed var(--border2);" data-note-id="note1072" onblur="if(window.fbSyncNote)window.fbSyncNote('note1072',this.textContent)">時間</div><div class="tl-title" contenteditable="true" spellcheck="false" style="outline:none;border-bottom:1px dashed var(--border2);" data-note-id="note1036" onblur="if(window.fbSyncNote)window.fbSyncNote('note1036',this.textContent)">事件標題</div><div class="tl-desc" contenteditable="true" spellcheck="false" data-note-id="note17" onblur="if(window.fbSyncNote)window.fbSyncNote('note17',this.textContent)">詳細說明（可刪除）</div></div>`;tl.appendChild(d);}
 
 // ── MAP UPLOAD ──
 function addMap(id,inp){
